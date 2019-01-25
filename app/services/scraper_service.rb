@@ -1,37 +1,6 @@
 require 'nokogiri'
 require 'open-uri'
 
-IDENTIFIER = {
-  stations: "div.block-station",
-  station_carousel: "div.carousel-inner img",
-  station_styles: "div.styles-station img.lazy",
-  station_contact_address: "div#mb_renseignements address p",
-  station_contact_phone: "div#mb_renseignements address div",
-  station_description: "div#mb_station h2",
-  station_state: "div#station_infos div.etat p",
-  station_altitude: "div#station_infos div.altitude p",
-  station_opening: "div#station_infos div.ouverture p",
-  station_partial_opening: "div#station_infos div.ouverture-partielle p",
-  station_domains_info: "div.alpin h4",
-  station_domains_green: "div.alpin li.vert",
-  station_domains_blue: "div.alpin li.bleu",
-  station_domains_red: "div.alpin li.rouge",
-  station_domains_black: "div.alpin li.noir",
-  station_snowfall: "div.neige h4",
-  station_open_domains_info: "div.pistes h4",
-  station_open_domains_green: "div.pistes li.vert",
-  station_open_domains_blue: "div.pistes li.bleu",
-  station_open_domains_red: "div.pistes li.rouge",
-  station_open_domains_black: "div.pistes li.noir",
-  station_ski_pass: "div.forfait h4",
-  station_snowpark: "div.nordic p.green",
-  station_weather_state: "div.meteo i",
-  station_weather_morning_degree: "div.meteo p.matin",
-  station_weather_afternoon_degree: "div.meteo p.apresmidi"
-}
-STATION_CODE_SEPARATOR = "-"
-REGEX_CLEAN_IMG_URL = /\?itok=.*/m
-
 class ScraperService
   attr_reader :url
 
@@ -48,14 +17,14 @@ class ScraperService
       data.css(IDENTIFIER[:stations]).each_with_index do |station, index|
         # Get the url of the station
         station_url = station.css("a").first["href"]
-        if index == 0
+        if index == 0 || index == 1
           station_data = get_station_data(station_url)
+          array_stations.push(station_data)
         end
 
-        #array_stations.push( station.content)
       end
 
-      puts array_stations.length
+      puts array_stations
 
     rescue
       false
@@ -164,7 +133,7 @@ class ScraperService
           afternoon: station_weather_afternoon_degree
         }
       }
-      puts station
+      return station
     rescue
       false
     end
