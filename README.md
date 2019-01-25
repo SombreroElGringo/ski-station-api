@@ -10,18 +10,18 @@
 You need to download, fork or clone the project
 
 ``` bash
-// install gems
+# install gems
 $ bundle install
 
-// create database
+# create database
 $ rake db:create
 
-// migrate models
+# migrate models
 $ rake db:migrate
 
-// insert seeds in the database
+# insert seeds in the database
 $ rake db:seed
 
-// run server on port 3000
+# run server on port 3000
 $ rails s -p 3000
 ```
