@@ -1,0 +1,304 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Ski Station API",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/v1/stations": {
+      "get": {
+        "summary": "Get all stations",
+        "tags": [
+          "Stations"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "name found",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "code": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "state": {
+                    "type": "string"
+                  },
+                  "altitude": {
+                    "type": "string"
+                  },
+                  "opening": {
+                    "type": "string"
+                  },
+                  "partial_opening": {
+                    "type": "string"
+                  },
+                  "snowpark": {
+                    "type": "string"
+                  },
+                  "styles": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "contact": {
+                    "type": "object",
+                    "properties": {
+                      "address": {
+                        "type": "string"
+                      },
+                      "phone": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "domains": {
+                    "type": "object",
+                    "properties": {
+                      "info": {
+                        "type": "string"
+                      },
+                      "green": {
+                        "type": "string"
+                      },
+                      "blue": {
+                        "type": "string"
+                      },
+                      "red": {
+                        "type": "string"
+                      },
+                      "black": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "snowfall": {
+                    "type": "object",
+                    "properties": {
+                      "top": {
+                        "type": "string"
+                      },
+                      "bottom": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "open_domains": {
+                    "type": "object",
+                    "properties": {
+                      "info": {
+                        "type": "string"
+                      },
+                      "green": {
+                        "type": "string"
+                      },
+                      "blue": {
+                        "type": "string"
+                      },
+                      "red": {
+                        "type": "string"
+                      },
+                      "black": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "ski_pass": {
+                    "type": "object",
+                    "properties": {
+                      "day": {
+                        "type": "string"
+                      },
+                      "week": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "weather": {
+                    "type": "object",
+                    "properties": {
+                      "state": {
+                        "type": "string"
+                      },
+                      "morning": {
+                        "type": "string"
+                      },
+                      "afternoon": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/stations/{code}": {
+      "get": {
+        "summary": "Get a station by code",
+        "tags": [
+          "Stations"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Station found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "state": {
+                  "type": "string"
+                },
+                "altitude": {
+                  "type": "string"
+                },
+                "opening": {
+                  "type": "string"
+                },
+                "partial_opening": {
+                  "type": "string"
+                },
+                "snowpark": {
+                  "type": "string"
+                },
+                "styles": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "contact": {
+                  "type": "object",
+                  "properties": {
+                    "address": {
+                      "type": "string"
+                    },
+                    "phone": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "domains": {
+                  "type": "object",
+                  "properties": {
+                    "info": {
+                      "type": "string"
+                    },
+                    "green": {
+                      "type": "string"
+                    },
+                    "blue": {
+                      "type": "string"
+                    },
+                    "red": {
+                      "type": "string"
+                    },
+                    "black": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "snowfall": {
+                  "type": "object",
+                  "properties": {
+                    "top": {
+                      "type": "string"
+                    },
+                    "bottom": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "open_domains": {
+                  "type": "object",
+                  "properties": {
+                    "info": {
+                      "type": "string"
+                    },
+                    "green": {
+                      "type": "string"
+                    },
+                    "blue": {
+                      "type": "string"
+                    },
+                    "red": {
+                      "type": "string"
+                    },
+                    "black": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "ski_pass": {
+                  "type": "object",
+                  "properties": {
+                    "day": {
+                      "type": "string"
+                    },
+                    "week": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "weather": {
+                  "type": "object",
+                  "properties": {
+                    "state": {
+                      "type": "string"
+                    },
+                    "morning": {
+                      "type": "string"
+                    },
+                    "afternoon": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "required": [
+                "code"
+              ]
+            }
+          },
+          "404": {
+            "description": "Station not found!"
+          }
+        }
+      }
+    }
+  }
+}

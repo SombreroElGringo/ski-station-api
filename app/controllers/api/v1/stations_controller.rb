@@ -1,6 +1,5 @@
 module Api::V1
   class StationsController < ApplicationController
-    before_action :set_property, only: [:show]
 
     # GET /stations
     def index
@@ -10,14 +9,14 @@ module Api::V1
 
     # GET /stations/champ-du-feu
     def show
-      render json: @property
+      @station = Station.find_by(code: params[:code])
+      if @station
+        render json: @station
+      else
+        response = {:status => "404", :message => "Station not found!"}
+        render json: response, status: :not_found
+      end
     end
 
-    private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_property
-      puts params[:code]
-      @property = Station.find_by(code: params[:code])
-    end
   end
 end
