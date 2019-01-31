@@ -32,7 +32,7 @@ describe 'Station API' do
             altitude: { type: :string },
             opening: { type: :string },
             partial_opening: { type: :string },
-            snowpark: { type: :string },
+            snowpark: { type: :integer },
             styles: { type: :text },
             contact: { type: :text },
             domains: { type: :text },
