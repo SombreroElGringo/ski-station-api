@@ -87,7 +87,7 @@ class ScraperService
       match_station_open_domains_red = data.css(IDENTIFIER[:station_open_domains_red]).first.content.match(/^([0-9]+)/m)
       station_open_domains_red = match_station_open_domains_red[0].to_i
       match_station_open_domains_black = data.css(IDENTIFIER[:station_open_domains_black]).first.content.match(/^([0-9]+)/m)
-      station_open_domains_black = match_station_domains_black[0].to_i
+      station_open_domains_black = match_station_open_domains_black[0].to_i
 
       station_ski_pass_day = data.css(IDENTIFIER[:station_ski_pass]).first.content
       station_ski_pass_week = data.css(IDENTIFIER[:station_ski_pass]).last.content
