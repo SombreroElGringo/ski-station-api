@@ -1,4 +1,5 @@
 class Station < ApplicationRecord
+  serialize :images, Array
   serialize :styles, Array
   serialize :contact
   serialize :domains

@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2019_01_25_204502) do
     t.string "opening"
     t.string "partial_opening"
     t.integer "snowpark"
+    t.text "images"
     t.text "styles"
     t.text "contact"
     t.text "domains"

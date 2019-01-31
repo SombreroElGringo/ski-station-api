@@ -7,6 +7,7 @@ Station.create(
   opening: "Du 22/12/2018 au 10/03/2019",
   partial_opening: "Du 22/12/2018 au 10/03/2019",
   snowpark: 1,
+  images: ["https://www.france-montagnes.com/sites/default/files/styles/station_slideshow_thumb/public/station/hiver/station-champ-du-feu--5-.JPG"],
   styles: [
     "sites nordiques",
     "stations villages de charme",
@@ -56,6 +57,7 @@ Station.create(
   opening: "Du 22/12/2018 au 24/03/2019",
   partial_opening: "Le 22/12/2018",
   snowpark: 1,
+  images: ["https://www.france-montagnes.com/sites/default/files/styles/station_slideshow_thumb/public/station/hiver/neige-paysage-027.jpg"],
   styles: ["stations nouvelles glisses", "sites nordiques", "montagne aventure", "montagne douce"],
   contact: {
     address: "OTI DES HAUTES-VOSGES GERARDMER 4 Place des Déportés 88401 - GERARDMER",

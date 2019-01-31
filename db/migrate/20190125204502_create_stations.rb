@@ -9,6 +9,7 @@ class CreateStations < ActiveRecord::Migration[5.2]
       t.string :opening
       t.string :partial_opening
       t.integer :snowpark
+      t.text :images
       t.text :styles
       t.text :contact
       t.text :domains
