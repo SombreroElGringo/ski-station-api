@@ -17,7 +17,7 @@
         ],
         "responses": {
           "200": {
-            "description": "name found",
+            "description": "Stations found",
             "schema": {
               "type": "array",
               "items": {
@@ -45,7 +45,7 @@
                     "type": "string"
                   },
                   "snowpark": {
-                    "type": "string"
+                    "type": "integer"
                   },
                   "styles": {
                     "type": "array",
@@ -71,16 +71,16 @@
                         "type": "string"
                       },
                       "green": {
-                        "type": "string"
+                        "type": "integer"
                       },
                       "blue": {
-                        "type": "string"
+                        "type": "integer"
                       },
                       "red": {
-                        "type": "string"
+                        "type": "integer"
                       },
                       "black": {
-                        "type": "string"
+                        "type": "integer"
                       }
                     }
                   },
@@ -102,16 +102,16 @@
                         "type": "string"
                       },
                       "green": {
-                        "type": "string"
+                        "type": "integer"
                       },
                       "blue": {
-                        "type": "string"
+                        "type": "integer"
                       },
                       "red": {
-                        "type": "string"
+                        "type": "integer"
                       },
                       "black": {
-                        "type": "string"
+                        "type": "integer"
                       }
                     }
                   },
@@ -193,7 +193,7 @@
                   "type": "string"
                 },
                 "snowpark": {
-                  "type": "string"
+                  "type": "integer"
                 },
                 "styles": {
                   "type": "array",
@@ -219,16 +219,16 @@
                       "type": "string"
                     },
                     "green": {
-                      "type": "string"
+                      "type": "integer"
                     },
                     "blue": {
-                      "type": "string"
+                      "type": "integer"
                     },
                     "red": {
-                      "type": "string"
+                      "type": "integer"
                     },
                     "black": {
-                      "type": "string"
+                      "type": "integer"
                     }
                   }
                 },
@@ -250,16 +250,16 @@
                       "type": "string"
                     },
                     "green": {
-                      "type": "string"
+                      "type": "integer"
                     },
                     "blue": {
-                      "type": "string"
+                      "type": "integer"
                     },
                     "red": {
-                      "type": "string"
+                      "type": "integer"
                     },
                     "black": {
-                      "type": "string"
+                      "type": "integer"
                     }
                   }
                 },
