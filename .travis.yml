@@ -1,0 +1,22 @@
+language: ruby
+rvm:
+  - 2.4.2
+
+cache:
+  - bundler
+
+before_script:
+  - bundle exec rake db:create
+  - bundle exec rake db:migrate
+  - bundle exec rake assets:precompile
+
+scripts:
+  - bundle exec rspec
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: "Vo/NvHmwQZ447ynS2B42OZtx29dOJbB64qW4Pq+2kfqiK0hP+CFELeTZdyNhnpOd7TcY5wRdpBsJ78PHuuNKhfrKumDj/yYLlFkG7m/a7m2t9JZwWAzrRKtV3A6med8UXiLJMa6fN6XQLQI3Faw+ym7v/9/quIiGrK2itC0VCDGzaWEmrTj8iW4ZfRxi6HGdF/HBIcCh5fPzh3Wc2Fqbh30c33DjmnVCbLvl6SdTDyY2bHFKA2r7P/FN3rXAXSyqdZEpJf0EsqCHoPuZMPQ0WJJlengK8Y1ZFxtl+AfGvguAqEu2gsuzDuQ4bNmmDKondfDMCnOoxM37TcwXnFYQkEqFw7ecZSGUycHczc01z0Eb6KIO+nNEtyJjOtyWVRnEMvHSz4iroZhoYQeIny1kJWPTEaJLyBT8HIy25fhihTJw39ZME5DPRVLQFRiaQtzwcIn5ou8HaTgdw0gM+F6lfUep5rN/Wvicj71N4nql8RnaOAmtecRaIMarksCphIZbL1N9YOLZYabV7Q4Ud88TymQEFUoz7NDfQcDr17vAaE+1XjyCkYnjqKm9vr7NSWdL8VtmVC8oaCoN2eaFDmQa7/CaF/T3OtDMYbE/KIQkysSoo7PN8Ycwvals6iwKoUQDtHhV/g1D7TUePkgpzbauY+5aQofynYeahbBR5px74IY="
+  app: ski-station-api
+  on:
+    repo: SombreroElGringo/ski-station-api
