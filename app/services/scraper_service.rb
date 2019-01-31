@@ -17,7 +17,7 @@ class ScraperService
       data.css(IDENTIFIER[:stations]).each_with_index do |station, index|
         # Get the url of the station
         station_url = station.css("a").first["href"]
-        if index == 0 || index == 1
+        if index == 0 || index == 0
           station_data = get_station_data(station_url)
           array_stations.push(station_data)
         end
@@ -67,24 +67,33 @@ class ScraperService
       station_partial_opening = data.css(IDENTIFIER[:station_partial_opening]).first.content
 
       station_domains_info = data.css(IDENTIFIER[:station_domains_info]).first.content
-      station_domains_green = data.css(IDENTIFIER[:station_domains_green]).first.content
-      station_domains_blue = data.css(IDENTIFIER[:station_domains_blue]).first.content
-      station_domains_red = data.css(IDENTIFIER[:station_domains_red]).first.content
-      station_domains_black = data.css(IDENTIFIER[:station_domains_black]).first.content
+      match_station_domains_green = data.css(IDENTIFIER[:station_domains_green]).first.content.match(/^([0-9]+)/m)
+      station_domains_green = match_station_domains_green[0].to_i
+      match_station_domains_blue = data.css(IDENTIFIER[:station_domains_blue]).first.content.match(/^([0-9]+)/m)
+      station_domains_blue = match_station_domains_blue[0].to_i
+      match_station_domains_red = data.css(IDENTIFIER[:station_domains_red]).first.content.match(/^([0-9]+)/m)
+      station_domains_red = match_station_domains_red[0].to_i
+      match_station_domains_black = data.css(IDENTIFIER[:station_domains_black]).first.content.match(/^([0-9]+)/m)
+      station_domains_black = match_station_domains_black[0].to_i
 
       station_snowfall_bottom = data.css(IDENTIFIER[:station_snowfall]).first.content
       station_snowfall_top = data.css(IDENTIFIER[:station_snowfall]).last.content
 
       station_open_domains_info = data.css(IDENTIFIER[:station_open_domains_info]).first.content
-      station_open_domains_green = data.css(IDENTIFIER[:station_open_domains_green]).first.content
-      station_open_domains_blue = data.css(IDENTIFIER[:station_open_domains_blue]).first.content
-      station_open_domains_red = data.css(IDENTIFIER[:station_open_domains_red]).first.content
-      station_open_domains_black = data.css(IDENTIFIER[:station_open_domains_black]).first.content
+      match_station_open_domains_green = data.css(IDENTIFIER[:station_open_domains_green]).first.content.match(/^([0-9]+)/m)
+      station_open_domains_green = match_station_open_domains_green[0].to_i
+      match_station_open_domains_blue = data.css(IDENTIFIER[:station_open_domains_blue]).first.content.match(/^([0-9]+)/m)
+      station_open_domains_blue = match_station_open_domains_blue[0].to_i
+      match_station_open_domains_red = data.css(IDENTIFIER[:station_open_domains_red]).first.content.match(/^([0-9]+)/m)
+      station_open_domains_red = match_station_open_domains_red[0].to_i
+      match_station_open_domains_black = data.css(IDENTIFIER[:station_open_domains_black]).first.content.match(/^([0-9]+)/m)
+      station_open_domains_black = match_station_domains_black[0].to_i
 
       station_ski_pass_day = data.css(IDENTIFIER[:station_ski_pass]).first.content
       station_ski_pass_week = data.css(IDENTIFIER[:station_ski_pass]).last.content
 
-      station_snowpark = data.css(IDENTIFIER[:station_snowpark]).first.content
+      match_station_snowpark = data.css(IDENTIFIER[:station_snowpark]).first.content.match(/^([0-9]+)/m)
+      station_snowpark = match_station_snowpark[0].to_i
 
       station_weather_state = data.css(IDENTIFIER[:station_weather_state]).first["title"]
       station_weather_morning_degree = data.css(IDENTIFIER[:station_weather_morning_degree]).first.content
