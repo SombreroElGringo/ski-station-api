@@ -35,6 +35,8 @@ end
 
 group :production, :development, :test do
   gem 'rspec-rails'
+  gem 'simplecov'
+  gem 'simplecov-console'
 end
 
 group :development do
