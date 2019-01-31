@@ -1,5 +1,7 @@
 # ski-station-api
 
+[![CodeFactor](https://www.codefactor.io/repository/github/sombreroelgringo/ski-station-api/badge)](https://www.codefactor.io/repository/github/sombreroelgringo/ski-station-api)
+
 ## Requirement
 
 * [Ruby](https://www.ruby-lang.org/en/documentation/installation/)
