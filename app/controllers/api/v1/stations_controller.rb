@@ -28,8 +28,8 @@ module Api::V1
           ScraperService.new(url).get_stations_from_html()
         end
 
-        response = {:status => "222", :message => "Scraper finished successfully!"}
-        render json: response
+        response = {:status => "201", :message => "Scraper finished successfully!"}
+        render json: response, status :created
       else
         response = {:status => "403", :message => "Access denied!"}
         render json: response, status: :forbidden
