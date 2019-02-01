@@ -202,9 +202,9 @@ class ScraperService
         nil : station_ski_pass_day_data.first.content
 
     station_ski_pass_week_data = data.css(IDENTIFIER[:station_ski_pass])
-    station_ski_pass_week = !station_ski_pass_week_data.first ?
-      nil : station_ski_pass_week_data.first.content == "-" ?
-        nil : station_ski_pass_week_data.first.content
+    station_ski_pass_week = !station_ski_pass_week_data.last ?
+      nil : station_ski_pass_week_data.last.content == "-" ?
+        nil : station_ski_pass_week_data.last.content
 
     return {
       day: station_ski_pass_day,
