@@ -13,7 +13,7 @@ class ScraperService
     data = data_scraper(url)
 
     array_stations = []
-    massif = data.css(IDENTIFIER[:massif]).first.content.downcase
+    massif = data.css(IDENTIFIER[:massif]).first.content.downcase.unicode_normalize(:nfkd).encode("ASCII", replace: "")
     data.css(IDENTIFIER[:stations]).each_with_index do |station, index|
       # Get the url of the station
       station_url = station.css("a").first["href"]
