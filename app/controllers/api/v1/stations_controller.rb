@@ -29,7 +29,7 @@ module Api::V1
         end
 
         response = {:status => "201", :message => "Scraper finished successfully!"}
-        render json: response, status :created
+        render json: response, status: :created
       else
         response = {:status => "403", :message => "Access denied!"}
         render json: response, status: :forbidden
