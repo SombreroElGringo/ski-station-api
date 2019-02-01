@@ -20,6 +20,12 @@ class ScraperService
       station_data = get_station_data(station_url, massif)
       array_stations.push(station_data)
     end
+
+    array_stations.each do |station|
+      puts "Inserting #{station[:code]} in DB"
+      Station.create(massif: station[:massif], code: station[:code], name: station[:name], description: station[:description], state: station[:state], altitude: station[:altitude], opening: station[:opening], partial_opening: station[:partial_opening], snowpark: station[:snowpark], images: station[:images], styles: station[:styles], contact: station[:contact], domains: station[:domains], snowfall: station[:snowfall], open_domains: station[:open_domains], ski_pass: station[:ski_pass], weather: station[:weather])
+    end
+
     puts array_stations
   rescue
     false
