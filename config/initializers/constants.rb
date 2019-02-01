@@ -11,6 +11,7 @@ MASSIF = [
 ]
 
 IDENTIFIER = {
+  massif: "h1",
   stations: "div.block-station",
   station_carousel: "div.carousel-inner img",
   station_styles: "div.styles-station img.lazy",

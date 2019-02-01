@@ -1,4 +1,5 @@
 Station.create(
+  massif: "vosges",
   code: "champ-du-feu",
   name: "CHAMP DU FEU",
   description: "Non loin de Strasbourg, le Champ du Feu dispose d'un domaine de ski alpin, ainsi que d'un domaine de ski de fond (gratuit), randonnées raquettes, luge, chiens de traîneau, randonnées pédestres....",
@@ -49,6 +50,7 @@ Station.create(
 )
 
 Station.create(
+  massif: "vosges",
   code: "gerardmer",
   name: "GERARDMER",
   description: "Au cœur des Hautes-Vosges, carrefour entre la Lorraine et l'Alsace, Gérardmer, pays des lacs, des forêts et des montagnes, n'a pas fini de vous étonner !",

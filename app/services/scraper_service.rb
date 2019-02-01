@@ -13,10 +13,11 @@ class ScraperService
     data = data_scraper(url)
 
     array_stations = []
+    massif = data.css(IDENTIFIER[:massif]).first.content.downcase
     data.css(IDENTIFIER[:stations]).each_with_index do |station, index|
       # Get the url of the station
       station_url = station.css("a").first["href"]
-      station_data = get_station_data(station_url)
+      station_data = get_station_data(station_url, massif)
       array_stations.push(station_data)
     end
     puts array_stations
@@ -26,7 +27,7 @@ class ScraperService
 
   private
 
-  def get_station_data(url)
+  def get_station_data(url, massif)
     puts "Scraping station with url = #{url}..."
     data = data_scraper(url)
 
@@ -49,6 +50,7 @@ class ScraperService
     station_weather = get_station_weather(data)
 
     station = {
+      massif: massif,
       code: station_code,
       name: station_name,
       images: station_images,

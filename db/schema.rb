@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2019_01_25_204502) do
   enable_extension "plpgsql"
 
   create_table "stations", force: :cascade do |t|
+    t.string "massif"
     t.string "code"
     t.string "name"
     t.string "description"
