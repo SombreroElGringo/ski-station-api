@@ -42,9 +42,9 @@ class ScraperService
     station_altitude = get_station_altitude(data)
     station_opening = get_station_opening(data)
     station_partial_opening = get_station_partial_opening(data)
-    station_domains = get_station_domains(data)
+    station_domains = get_station_domains(data, false)
     station_snowfall = get_station_snowfall(data)
-    station_open_domains = get_open_station_domains(data)
+    station_open_domains = get_station_domains(data, true)
     station_ski_pass = get_station_ski_pass(data)
     station_snowpark = get_station_snowpark(data)
     station_weather = get_station_weather(data)
@@ -134,25 +134,31 @@ class ScraperService
     return station_partial_opening_data.first ? station_partial_opening_data.first.content : nil
   end
 
-  def get_station_domains(data)
-    station_domains_info_data = data.css(IDENTIFIER[:station_domains_info])
+  def get_station_domains(data, open)
+    info_id = open ? IDENTIFIER[:station_open_domains_info] : IDENTIFIER[:station_domains_info]
+    green_id = open ? IDENTIFIER[:station_open_domains_green] : IDENTIFIER[:station_domains_green]
+    blue_id = open ? IDENTIFIER[:station_open_domains_blue] : IDENTIFIER[:station_domains_blue]
+    red_id = open ? IDENTIFIER[:station_open_domains_red] : IDENTIFIER[:station_domains_red]
+    black_id = open ? IDENTIFIER[:station_open_domains_black] : IDENTIFIER[:station_domains_black]
+
+    station_domains_info_data = data.css(info_id)
     station_domains_info = station_domains_info_data.first ?
       station_domains_info_data.first.content : nil
 
-    station_domains_green_data = data.css(IDENTIFIER[:station_domains_green])
-    match_station_domains_green = station_domains_green_data.first ? station_domains_green_data.first.content.match(/^([0-9]+)/m) : nil
+    station_domains_green_data = data.css(green_id)
+    match_station_domains_green = get_number_of_domains(station_domains_green_data)
     station_domains_green = match_station_domains_green ? match_station_domains_green[0].to_i : 0
 
-    station_domains_blue_data = data.css(IDENTIFIER[:station_domains_blue])
-    match_station_domains_blue = station_domains_blue_data.first ? station_domains_blue_data.first.content.match(/^([0-9]+)/m) : nil
+    station_domains_blue_data = data.css(blue_id)
+    match_station_domains_blue = get_number_of_domains(station_domains_blue_data)
     station_domains_blue = match_station_domains_blue ? match_station_domains_blue[0].to_i : 0
 
-    station_domains_red_data = data.css(IDENTIFIER[:station_domains_red])
-    match_station_domains_red = station_domains_red_data.first ? station_domains_red_data.first.content.match(/^([0-9]+)/m) : nil
+    station_domains_red_data = data.css(red_id)
+    match_station_domains_red = get_number_of_domains(station_domains_red_data)
     station_domains_red = match_station_domains_red ? match_station_domains_red[0].to_i : 0
 
-    station_domains_black_data = data.css(IDENTIFIER[:station_domains_black])
-    match_station_domains_black = station_domains_black_data.first ? station_domains_black_data.first.content.match(/^([0-9]+)/m) : nil
+    station_domains_black_data = data.css(black_id)
+    match_station_domains_black = get_number_of_domains(station_domains_black_data)
     station_domains_black = match_station_domains_black ? match_station_domains_black[0].to_i : 0
 
     return {
@@ -162,6 +168,10 @@ class ScraperService
       red: station_domains_red,
       black: station_domains_black,
     }
+  end
+
+  def get_number_of_domains(data)
+    return data.first ? data.first.content.match(REGEX_NUMBER) : nil
   end
 
   def get_station_snowfall(data)
@@ -176,36 +186,6 @@ class ScraperService
     return {
       top: station_snowfall_top,
       bottom: station_snowfall_bottom,
-    }
-  end
-
-  def get_open_station_domains(data)
-    station_open_domains_info_data = data.css(IDENTIFIER[:station_open_domains_info])
-    station_open_domains_info = station_open_domains_info_data.first ?
-      station_open_domains_info_data.first.content : nil
-
-    station_open_domains_green_data = data.css(IDENTIFIER[:station_open_domains_green])
-    match_station_open_domains_green = station_open_domains_green_data.first ? station_open_domains_green_data.first.content.match(/^([0-9]+)/m) : nil
-    station_open_domains_green = match_station_open_domains_green ? match_station_open_domains_green[0].to_i : 0
-
-    station_open_domains_blue_data = data.css(IDENTIFIER[:station_open_domains_blue])
-    match_station_open_domains_blue = station_open_domains_blue_data.first ? station_open_domains_blue_data.first.content.match(/^([0-9]+)/m) : nil
-    station_open_domains_blue = match_station_open_domains_blue ? match_station_open_domains_blue[0].to_i : 0
-
-    station_open_domains_red_data = data.css(IDENTIFIER[:station_open_domains_red])
-    match_station_open_domains_red = station_open_domains_red_data.first ? station_open_domains_red_data.first.content.match(/^([0-9]+)/m) : nil
-    station_open_domains_red = match_station_open_domains_red ? match_station_open_domains_red[0].to_i : 0
-
-    station_open_domains_black_data = data.css(IDENTIFIER[:station_open_domains_black])
-    match_station_open_domains_black = station_open_domains_black_data.first ? station_open_domains_black_data.first.content.match(/^([0-9]+)/m) : nil
-    station_open_domains_black = match_station_open_domains_black ? match_station_open_domains_black[0].to_i : 0
-
-    return {
-      info: station_open_domains_info,
-      green: station_open_domains_green,
-      blue: station_open_domains_blue,
-      red: station_open_domains_red,
-      black: station_open_domains_black,
     }
   end
 

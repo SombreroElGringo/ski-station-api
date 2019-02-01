@@ -43,3 +43,5 @@ IDENTIFIER = {
 STATION_CODE_SEPARATOR = "-"
 
 REGEX_CLEAN_IMG_URL = /\?itok=.*/m
+
+REGEX_NUMBER = /^([0-9]+)/m
