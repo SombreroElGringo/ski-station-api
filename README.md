@@ -1,6 +1,7 @@
 # ski-station-api
 
 [![CodeFactor](https://www.codefactor.io/repository/github/sombreroelgringo/ski-station-api/badge)](https://www.codefactor.io/repository/github/sombreroelgringo/ski-station-api)
+[![Build Status](https://travis-ci.org/SombreroElGringo/ski-station-api.svg?branch=develop)](https://travis-ci.org/SombreroElGringo/ski-station-api)
 
 ## Requirement
 
