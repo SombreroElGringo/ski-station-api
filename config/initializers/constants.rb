@@ -1,14 +1,18 @@
 FRANCE_MONTAGNES_URL = "https://www.france-montagnes.com"
 
-MASSIF = [
-  "#{FRANCE_MONTAGNES_URL}/massif/alpes-du-nord",
-  "#{FRANCE_MONTAGNES_URL}/massif/alpes-du-sud",
-  "#{FRANCE_MONTAGNES_URL}/massif/pyrenees",
-  "#{FRANCE_MONTAGNES_URL}/massif/massif-central",
-  "#{FRANCE_MONTAGNES_URL}/massif/jura",
-  "#{FRANCE_MONTAGNES_URL}/massif/vosges",
-  "#{FRANCE_MONTAGNES_URL}/massif/corse"
-]
+if  Rails.env.test?
+  MASSIF = ["#{FRANCE_MONTAGNES_URL}/massif/corse"]
+else
+  MASSIF = [
+    "#{FRANCE_MONTAGNES_URL}/massif/alpes-du-nord",
+    "#{FRANCE_MONTAGNES_URL}/massif/alpes-du-sud",
+    "#{FRANCE_MONTAGNES_URL}/massif/pyrenees",
+    "#{FRANCE_MONTAGNES_URL}/massif/massif-central",
+    "#{FRANCE_MONTAGNES_URL}/massif/jura",
+    "#{FRANCE_MONTAGNES_URL}/massif/vosges",
+    "#{FRANCE_MONTAGNES_URL}/massif/corse"
+  ]
+end
 
 IDENTIFIER = {
   massif: "h1",

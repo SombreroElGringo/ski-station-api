@@ -26,7 +26,7 @@ class ScraperService
       Station.create(massif: station[:massif], code: station[:code], name: station[:name], description: station[:description], state: station[:state], altitude: station[:altitude], opening: station[:opening], partial_opening: station[:partial_opening], snowpark: station[:snowpark], images: station[:images], styles: station[:styles], contact: station[:contact], domains: station[:domains], snowfall: station[:snowfall], open_domains: station[:open_domains], ski_pass: station[:ski_pass], weather: station[:weather])
     end
 
-    puts array_stations
+    return array_stations
   rescue
     false
   end

@@ -8,7 +8,7 @@ describe 'Station API' do
       tags 'Stations'
       produces 'application/json', 'application/xml'
 
-      response '200', 'name found' do
+      response '200', 'stations found' do
         schema type: :array
         run_test!
       end
@@ -22,7 +22,7 @@ describe 'Station API' do
       produces 'application/json', 'application/xml'
       parameter name: :code, :in => :path, :type => :string
 
-      response '200', 'name found' do
+      response '200', 'station found' do
         schema type: :object,
           properties: {
             code: { type: :string, },
@@ -53,4 +53,24 @@ describe 'Station API' do
       end
     end
   end
+
+  path '/api/v1/stations/scraper/{key}' do
+
+    get 'Scrape all stations' do
+      tags 'Stations'
+      produces 'application/json', 'application/xml'
+      parameter name: :key, :in => :path, :type => :string
+
+      response '201', 'Scraper finished successfully!' do
+        let(:key) { SCRAPER_KEY }
+        run_test!
+      end
+
+      response '403', 'Access denied!' do
+        let(:key) { 'invalid' }
+        run_test!
+      end
+    end
+  end
+
 end
