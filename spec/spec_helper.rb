@@ -14,16 +14,16 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require 'simplecov'
-SimpleCov.start
-
-require 'codecov'
-SimpleCov.formatter = SimpleCov::Formatter::Codecov
-
-require 'simplecov'
 require 'simplecov-console'
+require 'codecov'
 
 SimpleCov.formatter = SimpleCov::Formatter::Console
 SimpleCov.start
+
+if ENV['CI'] == 'true'
+  SimpleCov.formatter = SimpleCov::Formatter::Codecov
+  SimpleCov.start
+end
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
