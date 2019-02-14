@@ -23,7 +23,7 @@ class ScraperService
 
     array_stations.each do |station|
       puts "Inserting #{station[:code]} in DB"
-      Station.create(massif: station[:massif], code: station[:code], name: station[:name], description: station[:description], state: station[:state], altitude: station[:altitude], opening: station[:opening], partial_opening: station[:partial_opening], snowpark: station[:snowpark], images: station[:images], styles: station[:styles], contact: station[:contact], domains: station[:domains], snowfall: station[:snowfall], open_domains: station[:open_domains], ski_pass: station[:ski_pass], weather: station[:weather])
+      Station.create(massif: station[:massif], code: station[:code], name: station[:name], description: station[:description], state: station[:state], altitude: station[:altitude], opening: station[:opening], partial_opening: station[:partial_opening], snowpark: station[:snowpark], images: station[:images], styles: station[:styles], contact: station[:contact], domains: station[:domains], snowfall: station[:snowfall], open_domains: station[:open_domains], ski_pass: station[:ski_pass], weather: station[:weather], tops: station[:tops] )
     end
 
     return array_stations
@@ -55,7 +55,7 @@ class ScraperService
     station_snowpark = get_station_snowpark(data)
     station_weather = get_station_weather(data)
 
-    station_on_spotlight = STATIONS_ON_SPOTLIGHT.include? station_code
+    station_tops = STATIONS_ON_SPOTLIGHT.include? "#{station_code}"
 
     station = {
       massif: massif,
@@ -75,7 +75,7 @@ class ScraperService
       ski_pass: station_ski_pass,
       snowpark: station_snowpark,
       weather: station_weather,
-      onSoptlight: station_on_spotlight,
+      tops: station_tops,
     }
 
     return station

@@ -47,7 +47,7 @@ Station.create(
     morning: "Matin -9°",
     afternoon: "Après-midi -8°"
   },
-  onSpotlight: false
+  tops: false
 )
 
 Station.create(
@@ -93,5 +93,5 @@ Station.create(
     morning: "Matin -5°",
     afternoon: "Après-midi -3°"
   },
-  onSpotlight: true
+  tops: true
 )

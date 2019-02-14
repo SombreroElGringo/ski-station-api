@@ -18,7 +18,7 @@ class CreateStations < ActiveRecord::Migration[5.2]
       t.text :open_domains
       t.text :ski_pass
       t.text :weather
-      t.boolean :onSpotlight
+      t.boolean :tops
 
       t.timestamps
     end

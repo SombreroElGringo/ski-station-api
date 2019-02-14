@@ -4,10 +4,7 @@ describe ScraperService do
   context '.get_stations_from_html' do
 
     it 'should return a array of stations' do
-      array_stations = []
-      MASSIF.each do |url|
-        array_stations = ScraperService.new(url).get_stations_from_html()
-      end
+      array_stations = ScraperService.new(MASSIF[0]).get_stations_from_html()
       expect(array_stations.length).to equal(3)
     end
 

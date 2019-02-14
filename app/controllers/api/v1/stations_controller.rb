@@ -9,7 +9,7 @@ module Api::V1
 
      # GET /stations/tops
      def tops
-      @station = Station.where(onSpotlight: true).all
+      @station = Station.where(tops: true).all
       render json: @station
     end
 

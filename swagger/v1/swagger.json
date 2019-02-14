@@ -149,7 +149,7 @@
                       }
                     }
                   },
-                  "onSoptlight": {
+                  "tops": {
                     "type": "boolean"
                   }
                 }
@@ -303,7 +303,7 @@
                       }
                     }
                   },
-                  "onSoptlight": {
+                  "tops": {
                     "type": "boolean"
                   }
                 }
@@ -463,7 +463,7 @@
                     }
                   }
                 },
-                "onSoptlight": {
+                "tops": {
                   "type": "boolean"
                 }
               },
