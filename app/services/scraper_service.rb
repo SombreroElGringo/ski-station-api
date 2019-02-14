@@ -55,6 +55,8 @@ class ScraperService
     station_snowpark = get_station_snowpark(data)
     station_weather = get_station_weather(data)
 
+    station_on_spotlight = STATIONS_ON_SPOTLIGHT.include? station_code
+
     station = {
       massif: massif,
       code: station_code,
@@ -73,6 +75,7 @@ class ScraperService
       ski_pass: station_ski_pass,
       snowpark: station_snowpark,
       weather: station_weather,
+      onSoptlight: station_on_spotlight,
     }
 
     return station

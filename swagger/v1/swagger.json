@@ -148,6 +148,163 @@
                         "type": "string"
                       }
                     }
+                  },
+                  "onSoptlight": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/stations/ski/tops": {
+      "get": {
+        "summary": "Get all stations",
+        "tags": [
+          "Stations"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "Stations found",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "massif": {
+                    "type": "string"
+                  },
+                  "code": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "state": {
+                    "type": "string"
+                  },
+                  "altitude": {
+                    "type": "string"
+                  },
+                  "opening": {
+                    "type": "string"
+                  },
+                  "partial_opening": {
+                    "type": "string"
+                  },
+                  "snowpark": {
+                    "type": "integer"
+                  },
+                  "images": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "styles": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "contact": {
+                    "type": "object",
+                    "properties": {
+                      "address": {
+                        "type": "string"
+                      },
+                      "phone": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "domains": {
+                    "type": "object",
+                    "properties": {
+                      "info": {
+                        "type": "string"
+                      },
+                      "green": {
+                        "type": "integer"
+                      },
+                      "blue": {
+                        "type": "integer"
+                      },
+                      "red": {
+                        "type": "integer"
+                      },
+                      "black": {
+                        "type": "integer"
+                      }
+                    }
+                  },
+                  "snowfall": {
+                    "type": "object",
+                    "properties": {
+                      "top": {
+                        "type": "string"
+                      },
+                      "bottom": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "open_domains": {
+                    "type": "object",
+                    "properties": {
+                      "info": {
+                        "type": "string"
+                      },
+                      "green": {
+                        "type": "integer"
+                      },
+                      "blue": {
+                        "type": "integer"
+                      },
+                      "red": {
+                        "type": "integer"
+                      },
+                      "black": {
+                        "type": "integer"
+                      }
+                    }
+                  },
+                  "ski_pass": {
+                    "type": "object",
+                    "properties": {
+                      "day": {
+                        "type": "string"
+                      },
+                      "week": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "weather": {
+                    "type": "object",
+                    "properties": {
+                      "state": {
+                        "type": "string"
+                      },
+                      "morning": {
+                        "type": "string"
+                      },
+                      "afternoon": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "onSoptlight": {
+                    "type": "boolean"
                   }
                 }
               }
@@ -305,6 +462,9 @@
                       "type": "string"
                     }
                   }
+                },
+                "onSoptlight": {
+                  "type": "boolean"
                 }
               },
               "required": [

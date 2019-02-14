@@ -44,6 +44,8 @@ IDENTIFIER = {
   station_weather_afternoon_degree: "div.meteo p.apresmidi"
 }
 
+STATIONS_ON_SPOTLIGHT = ["areches-beaufort", "isola-2000", "courchevel", "les-menuires", "la-plagne", "piau-engaly", "valfrejus", "le-grand-bornand", "valloire", "ceillac-en-queyras", "serre-chevalier", "la-rosiere", "vaujany", "praz-de-lys-sommand", "oz-en-oisans"]
+
 STATION_CODE_SEPARATOR = "-"
 
 REGEX_CLEAN_IMG_URL = /\?itok=.*/m

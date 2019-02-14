@@ -15,6 +15,19 @@ describe 'Station API' do
     end
   end
 
+  path '/api/v1/stations/ski/tops' do
+
+    get 'Get all stations on soptligth' do
+      tags 'Stations'
+      produces 'application/json', 'application/xml'
+
+      response '200', 'stations found' do
+        schema type: :array
+        run_test!
+      end
+    end
+  end
+
   path '/api/v1/stations/{code}' do
 
     get 'Get a station by code' do

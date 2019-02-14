@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :stations, param: :code
       get "stations/scraper/:key" => "stations#scraper"
+      resources :stations
+      get "stations/ski/tops" => "stations#tops"
     end
   end
   get "*path", to: redirect('/')

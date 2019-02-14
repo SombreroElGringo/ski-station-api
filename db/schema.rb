@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 2019_01_25_204502) do
     t.text "open_domains"
     t.text "ski_pass"
     t.text "weather"
+    t.boolean "onSpotlight"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

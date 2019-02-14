@@ -7,6 +7,12 @@ module Api::V1
       render json: @stations
     end
 
+     # GET /stations/tops
+     def tops
+      @station = Station.where(onSpotlight: true).all
+      render json: @station
+    end
+
     # GET /stations/{code}
     def show
       @station = Station.find_by(code: params[:code])

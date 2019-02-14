@@ -46,7 +46,8 @@ Station.create(
     state: "Couvert",
     morning: "Matin -9°",
     afternoon: "Après-midi -8°"
-  }
+  },
+  onSpotlight: false
 )
 
 Station.create(
@@ -91,5 +92,6 @@ Station.create(
     state: "Couvert",
     morning: "Matin -5°",
     afternoon: "Après-midi -3°"
-  }
+  },
+  onSpotlight: true
 )
